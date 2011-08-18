@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\topmargin}{-0.5in}
+\newenvironment{references}{
+  \begin{center} \textsf{REFERENCES} \end{center}
+  \begin{list}{}{\topsep=0pt\parsep=0pt\baselineskip=20pt
+   \leftmargin=1.5em\itemindent=-\leftmargin}}
+  {\end{list}}
+
+\begin{document}
+
+\noindent [Reviewer]\\ 
+Hadley \textsc{Wickham} and Dianne \textsc{Cook} \\ 
+Iowa State University \\ 
+Department of Statistics, ISU \\ 
+102 Snedecor Hall \\ 
+Ames IA 50011-1210 \\ 
+1-515-294-3440 (voice) x-4040 (fax) \\ 
+dicook@iastate.edu \\ 
+
+
+\noindent [Book \#6090]\\ 
+{\Large\sf R Graphics}
+\begin{quotation}\noindent
+ Paul \textsc{Murrell}.  
+Boca Raton, FL: Chapman \& Hall/CRC, 2006.  ISBN: 1-58488-486-X. xix+301 pp. \$69.95(H).  
+\end{quotation}\vspace{12pt}
+
+\setlength{\baselineskip}{20pt}
+
+\section{Overview}
+
+``R Graphics'' is an excellent technical introduction to drawing
+graphics with R. It pulls together information currently scattered
+throughout various R documents and help pages. The organization and
+writing is clear and coherent, especially welcome when dealing with
+the intricacies of R graphics.  It serves as a very useful reference
+book.
+
+\section{What's in this book?}
+
+The book starts with an introduction to R graphics including a gallery
+of many different graphics made using R, demonstrating the power of R
+for generating static, high quality plots. The example plots range
+from basic statistical plots, to cleverly annotated plots, to
+sophisticated 3D diagrams and even whimsical art pieces! It is a very
+inspiring beginning and one feels well motivated to do battle with R.
+
+The main material in the book is divided into two parts.  The first
+describes the traditional, or base, graphics, while the second part
+introduces the newer grid graphics system, including lattice graphics.
+Grid was designed and written almost entirely by the author of the
+book, so Dr Murrell speaks with clear authority here.
+
+Base graphics was the first graphics system developed for R, and if
+you have used R in the past they are likely to be an old friend (or
+enemy). Base graphics has a simple metaphor: ink on paper. Just like
+drawing with your pen, you cannot undo your mistakes, except to start
+afresh. More formally, there is no representation of the graphics
+independent of their presence on the plot so you can only add, not
+edit or delete existing output. This makes base graphics simple and
+easy to understand, but fundamentally limited.  This limitation is
+best seen when trying to customise graphics, where you either need to
+start from scratch or grapple with many arcane settings. ``R
+Graphics'' provides an excellent summary of these details.
+
+In terms of functionality, but not yet popularity, base graphics has
+been superceded by grid. The explanation of grid is the strength of
+this book.  The section begins with a description of lattice graphics,
+an illustration of the power of grid.  Lattice is an implementation of
+trellis graphics (Becker, Cleveland and Shyu, 1996), which provide an
+easy way to produce small multiples of different subsets of a data
+set. The plots typically share the same scales and allow one to
+investigate relationships between two variables conditional on one (or
+more) other variables.  Lattice graphics present a higher level of
+abstraction than base graphics, but configuring lattice can be
+difficult due to the multitudinous (378 at last count) and repetitive
+options.  This book provides a handy reference to some of these
+options as well as a brief discussion of annotating lattice plots.
+The description of creating new plot types is briefer still, largely a
+reflection of the limitations with lattice.
+
+The framework provided by grid graphics has a number of advantages
+over the ink on paper design of base graphics:
+
+\begin{itemize}
+
+\item Grid objects have an independent representation as R objects,
+not just pixels on a screen (described in Chapter 7.3).
+
+\item A system of viewports allows for extremely flexible layout
+(described in Chapter 5.5).
+
+\item A range of coordinate systems makes it easy to draw what you
+want where you want it (described in Chapter 5.3).
+
+\end{itemize}
+
+While it is easy to draw directly to the screen with grid, its real
+power lies in creating objects that can be drawn at a later time. This
+allows much greater flexibility as objects can be extensively modified
+and even deleted.  Unfortunately, of the few R packages that use grid,
+even fewer return grid objects, which makes building on top of them
+almost as hard as building on top of base graphics.  We hope that this
+will change as more people read this book. With base (and even
+lattice) graphics it is hard to write reusable graphical functions,
+and this is the promise of the grid system.
+
+An R package, {\tt ggplot}, released after ``R Graphics'', further
+demonstrates this potential. It builds on grid graphics using the
+principles described in the Grammar of Graphics (Wilkinson, 2005),
+providing R users with a higher level compositional language and good
+defaults for generating both basic and sophisticated trellised plots.
+
+\section{What's not in this book?} 
+
+``R Graphics'' is a technical book. It does not attempt to explain the
+how or why of statistical graphics.  It covers the technicality of
+plot production, not purpose, giving the reader enough rope to be
+extremely creative or to fail spectacularly. It does, however, point
+readers to other books where they might learn about good graphics.
+
+The book does not describe interactive or dynamic graphics, such as
+linked brushing. Many readers may have experienced the power of a
+tight coupling between statistical analysis and graphics through
+XLispStat (Tierney, 1991) or DataDesk (Velleman, 1988). These systems
+enable the user to make plots of model diagnostics that are
+dynamically linked to plots of the data, updating themselves as a
+model changes. This is very useful for exploring data, but it remains
+difficult to realise within R. Base graphics and grid graphics are not
+designed with interaction in mind so appropriately ``R Graphics''
+focuses exclusively on static and presentation quality graphics, and
+the author points readers to recent developments in interactive
+graphics from R.
+
+The book's website provides an electronic version of the code used in
+the book, but little else. It would be useful to add material on
+features of grid that have appeared subsequent to the release of the
+book. For example, a recent release includes facilities for converting
+postscript files to grid objects.
+
+The description of grid graphics is the most important part of the
+book, explaining a new, more powerful, graphics engine. However, it is
+not given sufficient weight, and does not provide enough general
+examples which could be easily adapted to a reader's data. Our fear is
+that most readers will not get past the traditional graphics part of
+the book.  While the book provides a good summary of this system, it
+may slow the needful death of a primitive and out-dated system.
+
+\section{Recommendation}
+
+This is an excellent book. Everyone who uses R to draw graphics (all R
+users, we hope!) should have it open on their desk or at least on
+their shelves! We'd especially encourage readers to get beyond base
+graphics and carefully study the grid graphics engine.
+
+\begin{flushright}\def\baselinestretch{1}
+Hadley \textsc{Wickham} and Dianne \textsc{Cook} \\ 
+\emph{Iowa State University}
+\end{flushright}
+
+\begin{references} 
+\item R. A. Becker, W. S. Cleveland, and M. J. Shyu. ``The Design and Control of Trellis Display,'' \emph{Journal of Computational and Statistical Graphics}, 5:123–155, 1996.
+
+\item Tierney, L. ``LispStat: An Object-Oriented Environment for Statistical Computing and Dynamic Graphics'', Wiley, New York, 1991.
+
+\item Velleman, P.F. and Velleman, A.Y. ``DataDesk Professional'', {\tt http://www.datadesk.com}. Odesta Corporation, Northbrook, IL, 1988
+
+\item Wilkinson, L.  ``The Grammar of Graphics.''. Springer, New York, 2005.
+
+\end{references}
+
+\end{document}
+
+
