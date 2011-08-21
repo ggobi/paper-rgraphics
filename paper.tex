@@ -1,14 +1,183 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\topmargin}{-0.5in}
+\newenvironment{references}{
+  \begin{center} \textsf{REFERENCES} \end{center}
+  \begin{list}{}{\topsep=0pt\parsep=0pt\baselineskip=20pt
+   \leftmargin=1.5em\itemindent=-\leftmargin}}
+  {\end{list}}
 
 \begin{document}
 
-Main points:
+\noindent [Reviewers]\\ 
+Dianne \textsc{Cook} \\ 
+Iowa State University \\ 
+Department of Statistics, ISU \\ 
+2415 Snedecor Hall \\ 
+Ames IA 50011-1210 \\ 
+1-515-294-8865 (voice) x-4040 (fax) \\ 
+dicook@iastate.edu \\ 
+\\
+Hadley \textsc{Wickham} \\
+Rice University \\
+*** Need address\\
 
-\begin{itemize}
-\item No color
-\item Like the section on ggplot2 (new)
-\item Reference to other graphics packages (new)
-\item Refer to the old version
+\noindent [Book \#***]\\ 
+{\Large\sf R Graphics (second edition)}
+\begin{quotation}\noindent
+ Paul \textsc{Murrell}.  
+Boca Raton, FL: Chapman \& Hall/CRC, 2011.  ISBN: 1-4398-3176-2. xxvii+518 pp. \$***(H).  
+\end{quotation}\vspace{12pt}
+
+\setlength{\baselineskip}{20pt}
+
+\section{Overview}
+
+It has been 6 years since the first edition was published. A lot has
+changed in the world of statistical graphics during this time, which
+is reflected in the substantial new material in the second
+edition. Major changes include a chapter specifically devoted to the
+\texttt{ggplot2} package and a new {\em large} section describing the
+many available graphics packages and tools in R.  In our
+review of the first book we described this book as an excellent
+technical introduction to drawing graphics with R -- the changes make
+this book the essential and comprehensive guide to graphics in R.
+
+%Main points:
+
+%\begin{itemize}
+%\item No color
+%\item Like the section on ggplot2 (new)
+%\item Reference to other graphics packages (new)
+%\item Refer to the old version
+%\end{itemize}
+
+\section{What's in this book?}
+
+The book is divided into four parts -- base R graphics, grid graphics,
+the graphics engine and graphics packages. The first section on
+traditional base graphics is effectively the same as the first edition, and the
+only major change to the second section on grid graphics is the
+additional chapter on \texttt{ggplot2}.  The section on graphics
+engines describes different graphics devices, primarily. The major
+addition is the fourth section giving a supermarket of details on
+available graphics tools in R.
+
+The book starts with an introduction to R graphics including a gallery
+of many different graphics made using R, demonstrating the power of R
+for generating static, high quality plots. The example plots range
+from basic statistical plots, to cleverly annotated plots, and
+whimsical art pieces! It is a very inspiring beginning and one feels
+well motivated to do battle with R.
+
+Base graphics was the first graphics system developed for R, and if
+you have used R in the past they are likely to be an old friend (or
+enemy). Base graphics has a simple metaphor: ink on paper. Just like
+drawing with your pen, you cannot undo your mistakes, except to start
+afresh. More formally, there is no representation of the graphics
+independent of their presence on the plot so you can only add, not
+edit or delete existing output. This makes base graphics simple and
+easy to understand, but fundamentally limited.  This limitation is
+best seen when trying to customize graphics, where you either need to
+start from scratch or grapple with many arcane settings. ``R
+Graphics'' provides an excellent summary of these details.
+
+With the emergence of the \texttt{lattice} and \texttt{ggplot2}
+packages the grid engine has super-ceded base graphics, in popular use.
+The framework provided by grid graphics has a number of advantages
+over the ink on paper design of base graphics:
+
+\begin{itemize} \itemsep 0in
+
+\item Grid objects have an independent representation as R objects,
+not just pixels on a screen.
+
+\item A system of viewports allows for extremely flexible layout.
+
+\item A range of coordinate systems makes it easy to draw what you
+want where you want it.
+
 \end{itemize}
+
+To program in grid graphics requires seemingly low-level code,
+pushing and pulling viewports, for example. The packages build in grid
+translate the programming requirements into higher-level and more
+data-centric code. But as higher-level languages, at some point users will hit a limit to creative
+flexibility -- they cannot do absolutely everything they desire
+in these systems. For example,
+one of the frustrations in working with \texttt{ggplot2} is that it is not possible to draw multiple plots in 
+one graphics device. The grid foundation enables plots created with each package to be enhanced
+with grid commands, such as creating two \texttt{ggplot2} plots in a single device, which the advanced user will find well-documented in this book.   The grid graphics package was designed and
+written almost entirely by the author of the book, so Dr Murrell
+speaks with clear authority in the explanation of programming graphics
+with grid.
+
+The two chapters on the major graphics packages built on grid,
+\texttt{ggplot2} and \texttt{lattice} are concise and well-written
+introductions. To learn more about these packages the reader is
+directed to the recently published books explaining them in detail:
+Wickham (2009) and Sarkar (2008).
+
+The new section on graphics packages generally available for use in R, is especially 
+comprehensive. Here are some highlights of the material in this section:
+
+\begin{itemize} \itemsep 0in
+\item A chapter on the package \texttt{vcd} describes making
+plots of categorical data. 
+\item Map and network drawing packages are
+described. 
+\item Some color scheme choice packages are described, including
+\texttt{ColorBrewer}. 
+\item There is a chapter on interactive and dynamic
+graphics packages \texttt{rggobi} and \texttt{iplots}. 
+\item How to make
+animations using the \texttt{animation} package is described. 
+\item Some of the packages are utilities for reading in different
+types of images and outputting different types of formats, such as
+\texttt{SVGAnnotate}. 
+\item One chapter is devoted to writing GUIs to enable
+some interaction with graphics.
+\end{itemize}
+
+\noindent What is not entirely clear in the description of these plotting packages is on what base they are built. We tend to think  most are written in base graphics.
+
+\section{What's not in this book?} 
+
+COLOR! For an important graphics book, it is unfortunate that it does not
+have color. In truth, a lot of the book describes code and technical
+details of plotting in R, for which color is not needed, but there is some attention given to color choice and use in
+different parts and these would have been greatly enhanced by color
+figures. It is boggling to us why CRC didn't automatically insist on color
+production here, and couldn't find a way to offer it at much the same
+price. Similarly sized books with color are sold for a similar price
+to this one.
+
+``R Graphics'' still does not attempt to explain the how or why of
+statistical graphics, which is reasonable.  It covers the technicality
+of plot production, not purpose, giving the reader enough rope to be
+extremely creative or to fail spectacularly. It does, however, point
+readers to other books where they might learn about good graphics, and
+plotting for data analysis.
+
+The book's website provides an electronic version of
+the code used in the book.
+
+\section{Recommendation}
+
+This is an excellent book. Everyone who uses R to draw graphics should have a copy! 
+
+\begin{flushright}\def\baselinestretch{1}
+Dianne \textsc{Cook} and Hadley \textsc{Wickham} \\ 
+\emph{Iowa State University and Rice University}
+\end{flushright}
+
+\begin{references} 
+\item Wickham
+
+\item Sarkar
+\end{references}
 
 \end{document}
